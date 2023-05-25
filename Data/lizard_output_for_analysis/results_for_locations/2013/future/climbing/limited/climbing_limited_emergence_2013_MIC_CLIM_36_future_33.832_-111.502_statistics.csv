@@ -1,0 +1,41 @@
+mean annual temperature,295.761
+sd of mean annual temperature,10.95
+mean summer temperature,305.67
+sd of mean summer temperature,8.856
+mean winter temperature,286.272
+sd of mean winter temperature,6.574
+mean energy gain per year,648151.757
+mean growth rate per year,17.299
+mean activity hours per day in different months (hours),4.497,5.573,8.26,11.022,11.803,8.747,7.314,9.589,10.342,9.419,7.14,4.516,
+mean activity hours in the open per day in different months (hours),0.224,0.322,0.525,0.423,0.288,0.333,0.576,0.706,0.595,0.555,0.4,0.195,
+mean activity hours in the shade per day in different months (hours),0.0,0.004,0.061,0.347,0.49,0.575,1.33,1.987,1.433,0.467,0.02,0.0,
+mean activity hours on an open tree per day in different months (hours),4.2,5.176,7.381,7.77,4.907,2.313,1.37,1.827,3.009,5.962,6.463,4.311,
+mean activity hours on a shaded tree per day in different months (hours),0.073,0.071,0.294,2.482,6.117,5.526,4.038,5.069,5.306,2.435,0.257,0.01,
+mean time in the burrow in different months (percentage from day time),34.184,22.355,13.791,1.146,0.582,10.787,19.812,5.767,0.575,0.218,4.6,32.058,
+mean time in the shade in different months (percentage from day time),0.0,0.25,0.507,2.893,3.957,5.931,13.801,19.598,14.02,4.433,0.183,0.0,
+mean time in the open in different months (percentage from day time),2.239,3.084,4.402,3.352,2.071,2.414,4.232,5.33,4.927,5.011,3.976,1.937,
+mean time on a open tree in different months (percentage from day time),61.853,71.813,77.868,71.992,41.565,19.924,11.487,16.734,29.276,65.133,87.185,64.534,
+mean time on a shaded tree in different months (percentage from day time),1.724,2.497,3.432,20.617,51.825,60.943,50.668,52.571,51.202,25.205,4.056,1.472,
+mean time in which the lizard is climbing to get warm (percentage from day time) - in different months,12.33,13.301,11.43,7.743,3.29,1.825,1.516,1.548,3.516,6.35,13.896,14.379,
+mean time in which the lizard is climbing to get cool (percentage from day time) - in different months,0.0,0.0,0.04,1.16,14.743,18.89,6.177,3.977,3.53,0.146,0.0,0.0,
+mean time in which the lizard climbs not specifically to cool or warm - but still essential (percentage from day time) - in different months,0.016,0.062,0.445,0.425,0.0,0.0,0.0,0.0,0.0,0.016,0.0,0.0,
+mean time in which the the tree was the only option for activity (percentage from day time) - in different months,12.346,13.363,11.915,9.329,18.033,20.714,7.693,5.525,7.046,6.512,13.896,14.379,
+mean time in the burrow in different months (percentage from night time),20.841,9.145,2.285,0.0,0.806,18.0,30.806,6.452,1.5,0.0,0.667,13.306,
+mean time in the shade in different months (percentage from night time),79.159,90.855,97.715,100.0,99.194,82.0,69.194,93.548,98.5,100.0,99.333,86.694,
+mean days with activity per year,342.55
+mean days without activity per year,22.45
+mean first day of activity,2.3
+mean last day of activity,362.3
+years with no activity:,
+mean shade minutes per hour in the winter (Dec-Jan-Feb),0.067,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.884,0.0,0.031,0.587,2.054,2.587,2.709,2.81,2.764,1.073,
+mean open minutes per hour in the winter (Dec-Jan-Feb),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.131,0.0,0.0,0.0,0.0,0.0,0.0,0.033,0.033,0.0,
+mean burrow minutes per hour in the winter (Dec-Jan-Feb),8.633,8.746,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,41.95,28.071,26.691,25.313,22.428,18.722,15.151,12.069,10.098,9.0,
+mean open tree minutes per hour in the winter (Dec-Jan-Feb),47.814,40.597,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.412,29.49,33.11,34.067,35.419,38.358,41.473,44.088,46.304,49.359,
+mean shaded tree minutes per hour in the winter (Dec-Jan-Feb),3.486,10.657,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.623,2.439,0.168,0.033,0.099,0.333,0.667,1.0,0.8,0.568,
+mean shade minutes per hour in the summer (Jun-Jul-Aug),0.325,0.848,1.758,4.329,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.307,16.14,8.373,0.975,0.129,0.033,0.038,0.162,0.065,0.098,
+mean open minutes per hour in the summer (Jun-Jul-Aug),10.025,12.78,19.653,12.201,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.623,1.913,8.44,9.163,6.461,6.111,5.239,4.624,5.257,7.127,
+mean burrow minutes per hour in the summer (Jun-Jul-Aug),15.792,15.105,14.54,12.284,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.035,0.033,0.064,0.33,1.072,2.721,5.314,8.765,12.571,14.577,
+mean open tree minutes per hour in the summer (Jun-Jul-Aug),0.913,1.403,3.075,12.047,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,52.387,32.658,13.529,6.164,3.847,3.117,3.479,2.757,1.595,1.061,
+mean shaded tree minutes per hour in the summer (Jun-Jul-Aug),32.945,29.863,20.974,19.139,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.648,9.256,29.593,43.367,48.491,48.018,45.929,43.692,40.513,37.137,
+possible heights:,3,12,21,30,48,66,84,102,120,138,156,174,198,
+frequency of climbing to this height when climbing was essential (in dt units):,170774,9494,1489,271,452,214,1272,2091,2776,2418,3733,4153,108193,

@@ -1,0 +1,27 @@
+mean annual temperature,292.118
+sd of mean annual temperature,10.861
+mean summer temperature,302.068
+sd of mean summer temperature,8.79
+mean winter temperature,282.353
+sd of mean winter temperature,6.317
+mean energy gain per year,419622.607
+mean growth rate per year,10.946
+mean activity hours per day in different months (hours),0.447,1.341,3.798,7.667,9.135,6.479,6.705,9.233,8.906,6.388,2.066,0.329,
+mean activity hours in the open per day in different months (hours),0.447,1.309,3.324,3.927,2.644,1.489,1.849,2.474,2.931,4.103,1.993,0.329,
+mean activity hours in the shade per day in different months (hours),0.0,0.032,0.474,3.74,6.491,4.991,4.855,6.759,5.975,2.285,0.073,0.0,
+mean time in the burrow in different months (percentage from day time),77.896,69.86,38.157,11.862,3.718,20.104,22.68,2.138,0.153,3.451,36.094,75.795,
+mean time in the shade in different months (percentage from day time),1.901,1.171,6.819,32.621,62.737,61.071,56.79,68.684,59.398,27.405,3.327,2.806,
+mean time in the open in different months (percentage from day time),20.202,28.969,55.024,55.517,33.545,18.825,20.53,29.178,40.449,69.144,60.579,21.398,
+mean time in the burrow in different months (percentage from night time),56.267,49.688,11.29,1.333,0.968,30.167,31.613,0.806,0.0,0.0,11.357,51.912,
+mean time in the shade in different months (percentage from night time),43.733,50.312,88.71,98.667,99.032,69.833,68.387,99.194,100.0,100.0,88.643,48.088,
+mean days with activity per year,265.55
+mean days without activity per year,99.45
+mean first day of activity,21.9
+mean last day of activity,347.35
+years with no activity:,
+mean shade minutes per hour in the winter (Dec-Jan-Feb),18.649,15.768,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.935,2.106,3.842,7.931,12.996,18.156,23.201,26.59,28.347,
+mean open minutes per hour in the winter (Dec-Jan-Feb),9.868,28.547,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.569,0.134,0.0,0.0,0.0,0.067,0.233,0.167,0.133,0.0,
+mean burrow minutes per hour in the winter (Dec-Jan-Feb),31.483,15.684,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,59.431,58.931,57.894,56.158,52.069,46.938,41.611,36.632,33.277,31.653,
+mean shade minutes per hour in the summer (Jun-Jul-Aug),2.802,6.65,18.784,25.614,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.052,58.763,43.118,13.447,3.003,1.534,1.143,0.947,1.011,1.565,
+mean open minutes per hour in the summer (Jun-Jul-Aug),41.275,37.6,25.89,20.038,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,44.111,1.107,16.751,46.236,55.403,52.514,48.599,45.335,43.312,41.964,
+mean burrow minutes per hour in the summer (Jun-Jul-Aug),15.923,15.75,15.326,14.349,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.836,0.13,0.13,0.317,1.593,5.952,10.258,13.718,15.677,16.471,
