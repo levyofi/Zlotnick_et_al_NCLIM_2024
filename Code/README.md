@@ -11,5 +11,5 @@ Second, we calculate the operative temperature of lizards in the various microha
 ## Step 3 - processing the raw output of the lizard simulation 
 Third, we take the raw output from the lizard simulation model and calculate tables and netcdf files for model interpretation. The code and more documentation for this step in in `pre_analysis` folder.
 
-## Step 4 - analyzing and plotting the results from the lizard simulation (TO COMPLETE LATER)
+## Step 4 - analyzing and plotting the results from the lizard simulation
 Finally, using the calculated tables and netcdf files from the previous step, we caulculate statistics and generate figures. The code and more documentation for this step in in `final_analysis` folder.
