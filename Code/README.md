@@ -12,13 +12,4 @@ Second, we calculate the operative temperature of lizards in the various microha
 Third, we take the raw output from the lizard simulation model and calculate tables and netcdf files for model interpretation. The code and more documentation for this step in in `pre_analysis` folder.
 
 ## Step 4 - analyzing and plotting the results from the lizard simulation (TO COMPLETE LATER)
-Finally, using the calculated tables and netcdf files from the previous step, we caulculate statistics and generate figures. 
-### Statistical analysis
-`Comparison between lab and field body temperatures.R` :Statistical comparison of field body temperatures and laboratory preferred temperatures. Also includes code for figure S3.
-
-`Calculate_climate_change_data.R` :Code for calculating the mean increase in summer and winter temperatures by 2100 using worldclim's published global circulation models.
-
-### Figures and Tables
-`Figure 1.R`, `Figure 2.R`, `Figure 3.R`, `Figure 4.R`, `Figure 5.R`, `Figure 6.R`
-`Table 1.R`, `Table S2.R`
-
+Finally, using the calculated tables and netcdf files from the previous step, we caulculate statistics and generate figures. The code and more documentation for this step in in `final_analysis` folder.
