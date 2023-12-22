@@ -5,7 +5,7 @@ library(ncdf4)
 
 merging_tables <- function() {
   
-  geo_em <- nc_open("..\\input\\geo_em.d01.NC")
+  geo_em <- nc_open("..\\..\\Data\\lizard_output_for_analysis\\geo_em.d01.NC")
   
   netcdf_lons <- ncvar_get(geo_em, "XLONG_M")
   netcdf_lats <- ncvar_get(geo_em, "XLAT_M")
@@ -18,11 +18,11 @@ merging_tables <- function() {
   landmask <- landmask[,30:129]
   
   cases <- c("past_climbing", "past_not_climbing", "future_climbing", "future_not_climbing")
-  dir.create("..\\netcdf_files", showWarnings = FALSE)
+  dir.create("..\\..\\Data\\lizard_output_for_analysis\\netcdf_files", showWarnings = FALSE)
   
   for(case in cases){
     
-    rel_df <- read.csv(paste("..\\csv_files\\", case,".csv", sep = ""))
+    rel_df <- read.csv(paste("..\\..\\Data\\lizard_output_for_analysis\\csv_files\\", case,".csv", sep = ""))
     
     num_of_coordinates <- nrow(rel_df)
     
@@ -189,7 +189,7 @@ merging_tables <- function() {
     
     # creating the netCDF file
     
-    nc <- nc_create( paste("..\\netcdf_files\\", case,".nc", sep=""), list(id,lon,lat,mean_ta_year,sd_ta_year,mean_ta_summer,sd_ta_summer,mean_ta_winter,sd_ta_winter, energy_gain_per_year, growth_rate_per_year, annual_activity_hours, annual_activity_days, first_activity_day, last_activity_day, length_of_activity_season, mean_height, std_height, percentage_to_warm, percentage_to_cool, percentage_mixed, percentage_on_open_tree, percentage_on_shaded_tree))
+    nc <- nc_create( paste("..\\..\\Data\\lizard_output_for_analysis\\netcdf_files\\", case,".nc", sep=""), list(id,lon,lat,mean_ta_year,sd_ta_year,mean_ta_summer,sd_ta_summer,mean_ta_winter,sd_ta_winter, energy_gain_per_year, growth_rate_per_year, annual_activity_hours, annual_activity_days, first_activity_day, last_activity_day, length_of_activity_season, mean_height, std_height, percentage_to_warm, percentage_to_cool, percentage_mixed, percentage_on_open_tree, percentage_on_shaded_tree))
     
     # ********** GLOBAL ATTRIBUTES **********
     attval <- format(Sys.time(), '%F %r %Z')
@@ -259,7 +259,6 @@ merging_tables <- function() {
   
 }
 
-merging_tables()
 
 
 

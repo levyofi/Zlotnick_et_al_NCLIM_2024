@@ -17,8 +17,8 @@ import argparse
 import random
 
 def get_input_files(num_of_proc):
-    input_names_past = open("../past_climate_files.txt", 'r')
-    input_names_future = open("../future_climate_files.txt", 'r')
+    input_names_past = open("../short_past_climate_files.txt", 'r')
+    input_names_future = open("../short_future_climate_files.txt", 'r')
 
     input_names_past_lst = input_names_past.readlines()
     input_names_future_lst = input_names_future.readlines()

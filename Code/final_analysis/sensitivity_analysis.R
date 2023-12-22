@@ -8,8 +8,9 @@ library(maps)
 library(RColorBrewer)
 library(ggplot2)
 library(dplyr)
+library(reshape2)
 
-dir_path <- "../input/sums_for_sensitivity_analysis/"
+dir_path <- "../../Data/lizard_output_for_analysis/sums_for_sensitivity_analysis/"
 
 normal <- read.csv(paste0(dir_path,"sums.csv"), header = FALSE)
 activity_temp_range_05 <- read.csv(paste0(dir_path,"sums_activity_temp_range_0.5.csv"), header = FALSE)
@@ -141,14 +142,65 @@ colnames(df_for_csv) <- c("sum_name","group","mean_future_contribution", "sd_fut
                           "sd_hab_loss_climate_change_diff", "mean_climate_change_diff",
                           "sd_climate_change_diff")
 
-write.csv(df_for_csv, "../results/sensitivity_analysis_results.csv")
+write.csv(df_for_csv, "../../Data/lizard_outputs_for_analysis/sensitivity_analysis_results/sensitivity_analysis_results.csv")
 
 
 
 
+# sensitivity analysis for groups division
+
+groups_division_for_csv <- data.frame(matrix(ncol = 8, nrow = 0))
+
+for(j in 1:length(sums)){
+  
+  data_df <- sums[[j]]
+  colnames(data_df) <- columns
+  
+  clim_df <- data_df %>%
+    filter(climbing == 1)
+  
+  clim_df <- clim_df[order(clim_df$time),]
+  
+  clim_melted_df <- clim_df %>%
+    group_by(id) %>%
+    summarise(past_gr = first(growth_rate_per_year), future_gr = last(growth_rate_per_year), first_mty = first(mean_ta_year)) %>%
+    mutate(diff_gr_clim = future_gr - past_gr)
+  
+  clim_hab_df <- data_df %>%
+    filter((climbing == 1 & time == 0) | (climbing == 0 & time == 1))
+  
+  clim_hab_df <- clim_hab_df[order(clim_hab_df$time),]
+  
+  
+  clim_hab_melted_df <- clim_hab_df %>%
+    group_by(id) %>%
+    summarise(past_gr = first(growth_rate_per_year), future_gr = last(growth_rate_per_year), first_mty = first(mean_ta_year)) %>%
+    mutate(diff_gr_clim_hab = future_gr - past_gr)
+  
+  
+  united_melted_df <- merge(clim_melted_df, clim_hab_melted_df, by = "id") %>%
+    select(c(1,4,5,9))
+  
+  colnames(united_melted_df) <- c("id", "mean_ta", "clim_effect", "clim_hab_effect")
+  
+  united_melted_df$group <- "blue"
+  
+  united_melted_df$group[united_melted_df$clim_effect >= 0 & united_melted_df$clim_hab_effect >= 0] <- "green"
+  united_melted_df$group[united_melted_df$clim_effect < 0 & united_melted_df$clim_hab_effect < 0] <- "red"
+  united_melted_df$group[united_melted_df$clim_effect >= 0 & united_melted_df$clim_hab_effect < 0] <- "yellow"
+  
+  grouped_united_melted_df <- united_melted_df %>%
+    group_by(group) %>%
+    summarise(percentage = round((n() / nrow(united_melted_df)), 3) * 100) %>%
+    mutate(sa_scenario = sums_names[[j]])
+  
+  groups_division_for_csv <- rbind(groups_division_for_csv, grouped_united_melted_df)
+  
+}
 
 
-
+colnames(groups_division_for_csv) <- c("group", "percentage", "sa_scenario")
+groups_division_for_csv_long <- dcast(sa_scenario ~ group, data = groups_division_for_csv, value.var = "percentage")
 
 
 
