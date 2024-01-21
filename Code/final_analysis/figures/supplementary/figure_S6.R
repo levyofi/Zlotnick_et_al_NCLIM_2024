@@ -14,22 +14,27 @@ figure_S6 <- function(){
   
   path <- "..//..//Data//lizard_output_for_analysis//deep_data//day_sum_np.csv"
   
-  df <- read.csv(path, header = TRUE)
+  df <- fread(path, sep = ",")
+  colnames(df) <- c(colnames(df)[2:length(colnames(df))],"")
+  df <- df[,1:(ncol(df)-1)]
   
   df <- df %>%
-    mutate(activity = 60 - burrow)
+    mutate(activity = 60 - burrow) 
   
-  rel_df <- df[,c(1:4,12)]
+  df <- df[order(time),]
+  
+  mean_ta_past <- df %>%
+    group_by(id) %>%
+    summarise(past_mean_ta = first(mean_ta))
+  
+  
+  rel_df <- merge(df, mean_ta_past)
+  
   
   rel_df$time <- ifelse(rel_df$time == 0, "past", "future")
   
   
-  
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
-  
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   days_per_month <- c(0,31,59,90,120,151,181,212,243,273,304,334, 365)
   months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "")
@@ -38,7 +43,7 @@ figure_S6 <- function(){
   
   tiff(file=paste("results\\supplementary\\figure_S6\\figure_S6.tiff", sep = ""), width=10000, height=4000, res=300, compression="lzw")
   
-  p <- ggplot(rel_df, aes(x = julian_day, y = activity, z = mean_ta)) + 
+  p <- ggplot(rel_df, aes(x = julian_day, y = activity, z = past_mean_ta)) + 
     theme_bw() +
     stat_summary_hex(bins = 100) +
     ylab(expression(paste("Time of essential climbing [", frac("minute","hour"),"]", sep = ""))) +

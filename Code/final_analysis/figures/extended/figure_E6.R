@@ -28,13 +28,11 @@ figure_E6_facet_a <- function(){
   
   growth_rate_l <- raster(past_climbing_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("blue", "grey",
-                       "yellow", "orange", "#FF7F00", "red", "#7F0000"))
+  color_palette <- colorRampPalette(c("#BFD9E9","#FBF8F7","#FBB59E","#EF6653","#C32320","#67000D"))
+  colord <- color_palette(100)
   
   tiff(file=paste("results//extended//figure_E6//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(growth_rate_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -69,12 +67,11 @@ figure_E6_facet_b <- function(file_name, growth_rate_mat, min, max, by){
   
   growth_rate_l <- raster(habitat_loss_past_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F","blue", "#007FFF", "cyan2", "grey79"))
+  color_palette <- colorRampPalette(c("#08306B","#3787C0","#ABCFE5","#FBF8F7"))
+  colord <- color_palette(100)
   
   tiff(file=paste("results//extended//figure_E6//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(growth_rate_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -117,12 +114,11 @@ figure_E6_facet_c <- function(file_name, growth_rate_mat, min, max, by){
   #print(min(growth_rate_mat[growth_rate_mat != -10000], na.rm = TRUE))
   #print(max(growth_rate_mat[growth_rate_mat != -10000], na.rm = TRUE))
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F","blue", "#007FFF", "cyan2", "grey79"))
+  color_palette <- colorRampPalette(c("#08306B","#3787C0","#ABCFE5","#FBF8F7"))
+  colord <- color_palette(100)
   
   tiff(file=paste("results//extended//figure_E6//facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(growth_rate_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -143,11 +139,8 @@ figure_E6_facet_d <- function(mat){
   
   big_rel_df <- merge(rel_df, habitat_loss_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results//extended//figure_E6//facet_d.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
@@ -189,11 +182,8 @@ figure_E6_facet_e <- function(mat){
   
   big_rel_df <- merge(rel_df, habitat_loss_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results//extended//figure_E6//facet_e.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   

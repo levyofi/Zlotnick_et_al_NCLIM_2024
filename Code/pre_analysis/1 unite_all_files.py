@@ -9,7 +9,7 @@ def find_nth(string, substring, n):
     else:
         return string.find(substring, find_nth(string, substring, n-1) + 1)
 
-os.makedirs("deep_data", exist_ok = True)
+os.makedirs("..//..//Data//lizard_output_for_analysis//deep_data", exist_ok = True)
 files_lst = os.listdir("input/climbing_info_files")
 
 columns = ['julian_day', 'hour', 'daylight', 'burrow', 'open', 'shade', 'open_tree', 'shaded_tree', "ess_open_tree",
@@ -19,7 +19,7 @@ ordered_columns = ['id', 'lat', 'lon', 'time', 'mean_ta', 'julian_day', 'hour', 
 big_lst = []
 
 
-out_file = open("deep_data//all_summed.csv", 'w')
+out_file = open("..//..//Data//lizard_output_for_analysis//deep_data//all_summed.csv", 'w')
 for col in ordered_columns[:-1]:
     out_file.write(str(col) + ",")
 out_file.write(str(ordered_columns[-1]))
@@ -64,6 +64,6 @@ for filename in files_lst:
     
     file_df = file_df[ordered_columns]
 
-    file_df.to_csv("deep_data//all_summed.csv", mode = 'a', header = False, index = False)
+    file_df.to_csv("..//..//Data//lizard_output_for_analysis//deep_data//all_summed.csv", mode = 'a', header = False, index = False)
     
 

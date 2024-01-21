@@ -42,13 +42,11 @@ figure_S8_facet_a <- function(){
   
   percentage_l <- raster(change_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#007FFF",
-                       "grey79", "yellow", "red", "#7F0000"))
+  color_palette <- colorRampPalette(c("#71ABD2","#FBF8F7","#EF6653","#C32320","#67000D"))
+  colord <- color_palette(100)
   
   tiff(file=paste("results//supplementary//figure_S8//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(percentage_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(percentage_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -86,13 +84,11 @@ figure_S8_facet_b <- function(){
   
   percentage_l <- raster(change_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#007FFF",
-                                "grey79", "yellow", "red", "#7F0000"))
+  color_palette <- colorRampPalette(c("#71ABD2","#FBF8F7","#EF6653","#C32320","#67000D"))
+  colord <- color_palette(100)
                                 
   tiff(file=paste("results//supplementary//figure_S8//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(percentage_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(percentage_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -128,13 +124,11 @@ figure_S8_facet_c <- function(){
   
   mean_height_l <- raster(change_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "grey79",
-                                "yellow", "Orange", "#FF7F00", "red", "#7F0000"))
-                                
+  color_palette <- colorRampPalette(c("#71ABD2","#A4C9E1","#FBF8F7","#F79A85","#EF6653","#D13931","#A41719","#67000D"))
+  colord <- color_palette(100)
+  
   tiff(file=paste("results//supplementary//figure_S8//facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(mean_height_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(mean_height_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)

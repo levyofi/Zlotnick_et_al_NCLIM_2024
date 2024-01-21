@@ -60,11 +60,11 @@ figure_E9_facet_a <- function(){
   pos_l <- raster(always_pos_mat)
   neg_l <- raster(always_neg_mat)
   
-  jet.colors <- #taken from http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("yellow", "#FF7F00", "red", "#7F0000"))
+  color_palette <- colorRampPalette(c("#FBB59E","#EF6653","#C32320","#67000D"))
+  colord <- color_palette(100)
+  
   tiff(file=paste("results\\extended\\figure_E9\\facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  colord=jet.colors(100)
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
   plot(growth_rate_l, pch = 18, breaks = breaks, asp = 0.45, legend.width = 3, col = colord, axis.args=list(cex.axis=1.5, tcl = -0.2, mgp=c(0,0.5,0), lwd=0.5, at=seq(min,max,by)), axes=FALSE, box=FALSE)
@@ -131,11 +131,7 @@ figure_E9_facet_b <- function(mat){
     mutate(max_tree_to_cut = 100 - min_tree_percentage)
   
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
-  
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results\\extended\\figure_E9\\facet_b.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   

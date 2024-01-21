@@ -31,10 +31,6 @@ figure_S10 <- function(){
   lat_ncdf = ncvar_get(nc, varid="lat", start=c(1,1), count=c(1,-1))
   lon_ncdf = ncvar_get(nc, varid="lon", start=c(1,1), count=c(-1,1))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
-  
   #set the projection and extent of the maps
   lat <- raster("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc", varname="lat")
   lon <- raster("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc", varname="lon")
@@ -60,7 +56,7 @@ figure_S10 <- function(){
   min_r= cellStats(rs , stat='min')
   byz = 1
   range = seq(min_r, max_r+1, by = byz)
-  colord=jet.colors(length(range))
+  colord <- magma(length(range))
   projection(rs) <- p
   extent(rs) <- extent(plonlat)
   plot(rs, col=colord, xlab="", ylab="", xaxt="n", yaxt="n", bty="n", box=F, breaks = range , legend = F)

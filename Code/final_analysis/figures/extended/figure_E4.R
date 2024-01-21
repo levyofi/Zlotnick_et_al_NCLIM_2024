@@ -20,11 +20,7 @@ figure_E4 <- function(mat){
   rel_df$mean_ta_year <- rel_df$mean_ta_year - 273.15
   
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
-  
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results\\extended\\figure_E4\\figure_E4.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   

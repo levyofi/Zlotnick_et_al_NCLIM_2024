@@ -28,11 +28,8 @@ figure_E7_facet_a <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results//extended//figure_E7//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
@@ -75,11 +72,8 @@ figure_E7_facet_b <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   tiff(file=paste("results//extended//figure_E7//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
