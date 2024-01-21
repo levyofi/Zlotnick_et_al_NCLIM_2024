@@ -1,5 +1,5 @@
 ## Final Analysis
-Here are the code files needed for statistical analysis and plotting all of the figures in the paper and its supporting materials.
+Here are the code files needed for statistical analysis and plotting all the figures in the paper and its supporting materials.
 
 ### Statistical analysis
 To calculate the statistical description of the lizard simulation, we execute two R scripts:
@@ -9,10 +9,10 @@ To calculate the statistical description of the lizard simulation, we execute tw
 The statistical description for locations with at least 10% tree canopy cover is executed in 'get_stats_for_regions_with_trees.R'.
 
 ### Figures
-To create the figures, the `main.R` should be executed. This file first executes the R scripts in the `data_editing` folder and then executes the figure creation R scripts located in the `figures` folder.
-The figures will be created in a directory named 'results'.
+To create the figures, the `main.R` should be executed. This file first executes the R scripts in the `data_editing` folder and then executes the figure creation R scripts in the `figures` folder.
+The figures will be created in a directory named `results`.
 
-For a successful creation of the figures, the directory (`Data/lizard_output_for_analysis`) should include the following files and directories:
+For successful creation of the figures, the directory (`Data/lizard_output_for_analysis`) should include the following files and directories:
 
 - `sums.csv` (file)
 - `deep_data` (directory)
