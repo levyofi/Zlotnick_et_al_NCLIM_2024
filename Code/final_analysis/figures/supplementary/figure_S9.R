@@ -10,12 +10,12 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//supplementary", showWarnings = F)
-dir.create("results//supplementary//figure_S9", showWarnings = F)
+dir.create("results/supplementary", showWarnings = F)
+dir.create("results/supplementary/figure_S9", showWarnings = F)
 
 figure_S9 <- function(){
   
-  rel_df <- read.csv("..\\..\\Data\\lizard_output_for_analysis\\canopy_analysis\\sums_with_canopy_cover.csv")
+  rel_df <- read.csv("../../Data/lizard_output_for_analysis/canopy_analysis/sums_with_canopy_cover.csv")
   
   rel_df$time[rel_df$time == 0] <- "past"
   rel_df$time[rel_df$time == 1] <- "future"
@@ -60,7 +60,7 @@ figure_S9 <- function(){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//supplementary//figure_S9//figure_S9.tiff", sep = ""), width=4500, height=3500, res=300, compression="lzw")
+  tiff(file=paste("results/supplementary/figure_S9/figure_S9.tiff", sep = ""), width=4500, height=3500, res=300, compression="lzw")
   
   p <- ggplot(united_melted_df, aes(x = clim_effect, y = clim_hab_effect, z = mean_ta)) +
     theme_bw() +

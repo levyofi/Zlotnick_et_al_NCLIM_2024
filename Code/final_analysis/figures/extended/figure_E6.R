@@ -9,15 +9,15 @@ library(RColorBrewer)
 library(ggplot2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E6", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E6", showWarnings = F)
 
 
 figure_E6_facet_a <- function(){
   
   # load data from netcdf files
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
@@ -31,7 +31,7 @@ figure_E6_facet_a <- function(){
   color_palette <- colorRampPalette(c("#BFD9E9","#FBF8F7","#FBB59E","#EF6653","#C32320","#67000D"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results//extended//figure_E6//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E6/facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -45,13 +45,13 @@ figure_E6_facet_b <- function(file_name, growth_rate_mat, min, max, by){
   
   # load data from netcdf files
   case <- "past_not_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_not_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
   
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
@@ -70,7 +70,7 @@ figure_E6_facet_b <- function(file_name, growth_rate_mat, min, max, by){
   color_palette <- colorRampPalette(c("#08306B","#3787C0","#ABCFE5","#FBF8F7"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results//extended//figure_E6//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E6/facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -84,13 +84,13 @@ figure_E6_facet_c <- function(file_name, growth_rate_mat, min, max, by){
   
   # load data from netcdf files
   case <- "past_not_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_not_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
   
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
@@ -117,7 +117,7 @@ figure_E6_facet_c <- function(file_name, growth_rate_mat, min, max, by){
   color_palette <- colorRampPalette(c("#08306B","#3787C0","#ABCFE5","#FBF8F7"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results//extended//figure_E6//facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E6/facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -142,7 +142,7 @@ figure_E6_facet_d <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//extended//figure_E6//facet_d.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E6/facet_d.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = first_mty, y = diff_gr, z = first_mty)) +
     theme_bw() +
@@ -185,7 +185,7 @@ figure_E6_facet_e <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//extended//figure_E6//facet_e.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E6/facet_e.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = first_mty, y = rel_diff_gr, z = first_mty)) +
     theme_bw() +

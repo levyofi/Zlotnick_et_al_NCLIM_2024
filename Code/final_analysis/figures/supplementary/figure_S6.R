@@ -7,12 +7,12 @@ library(reshape2)
 
 
 dir.create("results", showWarnings = F)
-dir.create("results//supplementary", showWarnings = F)
-dir.create("results//supplementary//figure_S6", showWarnings = F)
+dir.create("results/supplementary", showWarnings = F)
+dir.create("results/supplementary/figure_S6", showWarnings = F)
 
 figure_S6 <- function(){
   
-  path <- "..//..//Data//lizard_output_for_analysis//deep_data//day_sum_np.csv"
+  path <- "../../Data/lizard_output_for_analysis/deep_data/day_sum_np.csv"
   
   df <- fread(path, sep = ",")
   colnames(df) <- c(colnames(df)[2:length(colnames(df))],"")
@@ -41,7 +41,7 @@ figure_S6 <- function(){
   
   
   
-  tiff(file=paste("results\\supplementary\\figure_S6\\figure_S6.tiff", sep = ""), width=10000, height=4000, res=300, compression="lzw")
+  tiff(file=paste("results/supplementary/figure_S6/figure_S6.tiff", sep = ""), width=10000, height=4000, res=300, compression="lzw")
   
   p <- ggplot(rel_df, aes(x = julian_day, y = activity, z = past_mean_ta)) + 
     theme_bw() +

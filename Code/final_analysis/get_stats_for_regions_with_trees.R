@@ -49,7 +49,7 @@ plot(veg_raster_above_20)
 
 # same calculation as in "important_statistics.R", but only for location with >5% tree canopy cover
 
-data_df <- read.csv("..\\..\\Data\\lizard_output_for_analysis\\sums.csv", header = FALSE)
+data_df <- read.csv("../../Data/lizard_output_for_analysis/sums.csv", header = FALSE)
 colnames(data_df) <- c("id", "lat", "lon", "time", "climbing", "mean_ta_year", "sd_ta_year", "mean_ta_summer", "sd_ta_summer", "mean_ta_winter", "sd_ta_winter", "energy_gain_per_year", "growth_rate_per_year", "annual_activity_hours", "annual_activity_days", "first_activity_day", "last_activity_day", "length_of_activity_season", "mean_height", "std_height", "mean_height_open", "mean_height_shaded", "percentage_to_warm", "percentage_to_cool", "percentage_mixed", "percentage_on_open_tree", "percentage_on_shaded_tree", "percentage_of_essential_from_open_tree", "percentage_of_essential_from_shaded_tree")
 
 full_data_df <- merge(data_df, locations_id_veg, by = "id")

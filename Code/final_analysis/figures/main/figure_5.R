@@ -10,14 +10,14 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//main", showWarnings = F)
-dir.create("results//main//figure_5", showWarnings = F)
+dir.create("results/main", showWarnings = F)
+dir.create("results/main/figure_5", showWarnings = F)
 
 figure_5 <- function(){
   
   # open vegetation data
   
-  path <- "..//..//Data//lizard_output_for_analysis//"
+  path <- "../../Data/lizard_output_for_analysis/"
   
   veg_past <- nc_open(paste(path, "FVEG_monthly_past.nc", sep = ""))
   veg_future <- nc_open(paste(path, "FVEG_monthly_future.nc", sep = ""))
@@ -44,7 +44,7 @@ figure_5 <- function(){
   
   # open model data
   
-  path_2 <- "..//..//Data//lizard_output_for_analysis//netcdf_files//"
+  path_2 <- "../../Data/lizard_output_for_analysis/netcdf_files/"
   
   data_past_climbing <- nc_open(paste(path_2, "past_climbing.nc", sep = ""))
   data_past_not_climbing <- nc_open(paste(path_2, "past_not_climbing.nc", sep = ""))
@@ -108,7 +108,7 @@ figure_5 <- function(){
         mixed_diff <- gr_mixed_effect[[i,j]]
         
         if(clim_chng_diff < 0){
-          grp = "red"
+          grp = "brown"
         } else{
           if(mixed_diff < 0){
             grp = "yellow"
@@ -153,14 +153,14 @@ figure_5 <- function(){
     filter(grp == "green")
   
   red <- decrease %>%
-    filter(grp == "red")
+    filter(grp == "brown")
     
   print(paste("out of", nrow(decrease), "locations where vegetation will decrease,", nrow(red), "are red, and", nrow(yellow), "are yellow (", nrow(green), "are green)"))
   
   
-  tiff(file=paste("results\\main\\figure_5\\figure_5.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_5/figure_5.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  p <- ggplot(rel_df, aes(x = vegetation, y = gr_diff, color = factor(grp, levels = c("red", "yellow", "green")))) +
+  p <- ggplot(rel_df, aes(x = vegetation, y = gr_diff, color = factor(grp, levels = c("brown", "yellow", "green")))) +
     theme_bw() +
     geom_point(size = 2) +
     #stat_summary_hex(bins = 100) +
@@ -176,12 +176,12 @@ figure_5 <- function(){
           axis.text.y = element_text(size = 30),
           plot.margin = margin(1,1,1,1, "cm"),
           panel.grid = element_blank()) +
-    scale_colour_manual(values = c("red" = "red", "yellow" = "yellow2", "green" = "chartreuse3")) +
+    scale_colour_manual(values = c("brown" = "chocolate4", "yellow" = "yellow3", "green" = "chartreuse4")) +
     xlim(-25,15) +
     ylim(0,10) +
-    stat_ellipse(geom = "polygon", level = 0.9, alpha = 0.25, linewidth = 1, color = "black",
+    stat_ellipse(geom = "polygon", level = 0.9, alpha = 0.35, linewidth = 1, color = "black",
                  aes(fill = grp)) +
-    scale_fill_manual(values = c("red" = "red", "yellow" = "yellow2", "green" = "chartreuse3"))
+    scale_fill_manual(values = c("brown" = "chocolate4", "yellow" = "yellow3", "green" = "chartreuse4"))
   
   
   print(p)

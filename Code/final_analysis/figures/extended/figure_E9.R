@@ -10,27 +10,27 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E9", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E9", showWarnings = F)
 
 figure_E9_facet_a <- function(){
   
   # load data from netcdf files
   
   case <- "past_climbing"
-  file_name <- paste("..\\..\\Data\\lizard_output_for_analysis\\netcdf_files\\", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
   
   case <- "future_not_climbing"
-  file_name <- paste("..\\..\\Data\\lizard_output_for_analysis\\netcdf_files\\", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   future_not_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
   
   case <- "future_climbing"
-  file_name <- paste("..\\..\\Data\\lizard_output_for_analysis\\netcdf_files\\", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   future_climbing_mat <- ncvar_get(nfile, varid = "growth_rate_per_year")
   status <- nc_close((nfile))
@@ -63,7 +63,7 @@ figure_E9_facet_a <- function(){
   color_palette <- colorRampPalette(c("#FBB59E","#EF6653","#C32320","#67000D"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results\\extended\\figure_E9\\facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E9/facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(growth_rate_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -133,7 +133,7 @@ figure_E9_facet_b <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results\\extended\\figure_E9\\facet_b.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E9/facet_b.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(rel_yellow, aes(x = first_mty, y = min_tree_percentage, z = first_mty)) +
     theme_bw() +

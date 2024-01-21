@@ -6,12 +6,12 @@ library(ncdf4)
 library(reshape2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//main", showWarnings = F)
-dir.create("results//main//figure_1", showWarnings = F)
+dir.create("results/main", showWarnings = F)
+dir.create("results/main/figure_1", showWarnings = F)
 
 figure_1 <- function(){
   
-  path <- "..//..//Data//lizard_output_for_analysis//deep_data//day_sum_np.csv"
+  path <- "../../Data/lizard_output_for_analysis/deep_data/day_sum_np.csv"
   
   df <- read.csv(path, header = TRUE)
   
@@ -28,12 +28,7 @@ figure_1 <- function(){
     filter(time == curr_time)
   
   
-  
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                                "gray", "yellow", "#FF7F00", "red", "#7F0000"))
-                                
-  colord=jet.colors(100)
+  colord <- magma(100)
   
   days_per_month <- c(0,31,59,90,120,151,181,212,243,273,304,334, 365)
   months <- c("J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D", "")
@@ -57,7 +52,7 @@ figure_1 <- function(){
     
     
     
-    tiff(file=paste("results\\main\\figure_1\\", name, ".tiff", sep = ""), width=6000, height=4000, res=300, compression="lzw")
+    tiff(file=paste("results/main/figure_1/", name, ".tiff", sep = ""), width=6000, height=4000, res=300, compression="lzw")
     
     p <- ggplot(spec_df, aes(x = julian_day, y = value, z = mean_ta)) + 
       theme_bw() +

@@ -3,12 +3,12 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//supplementary", showWarnings = F)
-dir.create("results//supplementary//figure_S3", showWarnings = F)
+dir.create("results/supplementary", showWarnings = F)
+dir.create("results/supplementary/figure_S3", showWarnings = F)
 
 figure_S3_facet_a <- function(){
   
-  path <- paste("..//..//Data//lizard_output_for_analysis//heat_pars//climbing_limited_emergence_2013_MIC_CLIM_36_past_33.832_-111.502__heat_pars.csv", sep = "")
+  path <- paste("../../Data/lizard_output_for_analysis/heat_pars/climbing_limited_emergence_2013_MIC_CLIM_36_past_33.832_-111.502__heat_pars.csv", sep = "")
   
   df <- read.csv(path) %>%
     filter(shade_level == "shade") %>%
@@ -42,14 +42,14 @@ figure_S3_facet_a <- function(){
           panel.spacing = unit(2, "lines"),
           panel.grid = element_blank())
   
-  plot_path <- "results\\supplementary\\figure_S3\\facet_a.jpeg"
+  plot_path <- "results/supplementary/figure_S3/facet_a.jpeg"
   ggsave(plot_path, plot = last_plot(), dpi = 1200, height = 17.66, width = 35, units = "cm")
   
 }
 
 figure_S3_facet_b <- function(){
   
-  path <- paste("..//..//Data//lizard_output_for_analysis//heat_pars//tree_height.csv", sep = "")
+  path <- paste("../../Data/lizard_output_for_analysis/heat_pars/tree_height.csv", sep = "")
   
   df <- read.csv(path)
   
@@ -78,7 +78,7 @@ figure_S3_facet_b <- function(){
           panel.grid = element_blank()) + 
     scale_y_continuous(sec.axis = sec_axis(trans = (~.), breaks = c(27,31,35,39), labels = c(1,3,5,7), name=""))
   
-  plot_path <- "results\\supplementary\\figure_S3\\facet_b.jpeg"
+  plot_path <- "results/supplementary/figure_S3/facet_b.jpeg"
   ggsave(plot_path, plot = last_plot(), dpi = 1200, height = 17.66, width = 35, units = "cm")
   
 }

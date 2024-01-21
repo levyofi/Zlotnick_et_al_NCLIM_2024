@@ -10,8 +10,8 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E4", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E4", showWarnings = F)
 
 
 figure_E4 <- function(mat){
@@ -22,7 +22,7 @@ figure_E4 <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results\\extended\\figure_E4\\figure_E4.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E4/figure_E4.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(rel_df, aes(x = percentage_to_cool, y = mean_height, z = mean_ta_year)) +
     theme_bw() +

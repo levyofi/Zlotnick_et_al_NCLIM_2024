@@ -10,8 +10,8 @@ library(ggplot2)
 library(dplyr)
 
 dir.create("results", showWarnings = F)
-dir.create("results//main", showWarnings = F)
-dir.create("results//main//figure_4", showWarnings = F)
+dir.create("results/main", showWarnings = F)
+dir.create("results/main/figure_4", showWarnings = F)
 
 figure_4 <- function(mat){
   
@@ -45,13 +45,10 @@ figure_4 <- function(mat){
   
   colnames(united_melted_df) <- c("id", "mean_ta", "clim_effect", "clim_hab_effect")
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
-  tiff(file=paste("results\\main\\figure_4\\figure_4.tiff", sep = ""), width=4500, height=3500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_4/figure_4.tiff", sep = ""), width=4500, height=3500, res=300, compression="lzw")
   
   p <- ggplot(united_melted_df, aes(x = clim_effect, y = clim_hab_effect, z = mean_ta)) +
     theme_bw() +

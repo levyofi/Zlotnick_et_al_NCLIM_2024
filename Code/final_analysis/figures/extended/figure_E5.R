@@ -9,15 +9,15 @@ library(RColorBrewer)
 library(ggplot2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E5", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E5", showWarnings = F)
 
 figure_E5_facet_a <- function(){
   
   # loading data from netcdf
   
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "annual_activity_hours")
   status <- nc_close((nfile))
@@ -33,7 +33,7 @@ figure_E5_facet_a <- function(){
   
   colord <- magma(100)
   
-  tiff(file=paste("results\\extended\\figure_E5\\facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E5/facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(activity_hours_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -48,13 +48,13 @@ figure_E5_facet_b <- function(){
   # load data from netcdf files
   
   case <- "past_not_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_not_climbing_mat <- ncvar_get(nfile, varid = "annual_activity_hours")
   status <- nc_close((nfile))
 
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "annual_activity_hours")
   status <- nc_close((nfile))
@@ -75,7 +75,7 @@ figure_E5_facet_b <- function(){
   color_palette <- colorRampPalette(c("#FBF8F7","#FC9F81","#E32F27","#67000D"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results\\extended\\figure_E5\\facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E5/facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(activity_hours_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -90,13 +90,13 @@ figure_E5_facet_c <- function(){
   # load data from netcdf files
   
   case <- "past_not_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_not_climbing_mat <- ncvar_get(nfile, varid = "annual_activity_hours")
   status <- nc_close((nfile))
   
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "annual_activity_hours")
   status <- nc_close((nfile))
@@ -117,7 +117,7 @@ figure_E5_facet_c <- function(){
   color_palette <- colorRampPalette(c("#FBF8F7","#FC9F81","#E32F27","#67000D"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results\\extended\\figure_E5\\facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E5/facet_c.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(activity_hours_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)

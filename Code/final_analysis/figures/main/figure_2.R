@@ -6,8 +6,8 @@ library(ncdf4)
 library(reshape2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//main", showWarnings = F)
-dir.create("results//main//figure_2", showWarnings = F)
+dir.create("results/main", showWarnings = F)
+dir.create("results/main/figure_2", showWarnings = F)
 
 
 figure_2_facet_a <- function(mat){
@@ -23,13 +23,10 @@ figure_2_facet_a <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
-  tiff(file=paste("results\\main\\figure_2\\facet_a.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_2/facet_a.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = last_ah, y = diff_abs_ah, z = first_mty)) +
     theme_bw() +
@@ -69,13 +66,10 @@ figure_2_facet_b <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
-  tiff(file=paste("results\\main\\figure_2\\facet_b.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_2/facet_b.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = diff_abs_ah, y = diff_rel_ah, z = first_mty)) +
     theme_bw() +
@@ -116,13 +110,10 @@ figure_2_facet_c <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
-  tiff(file=paste("results\\main\\figure_2\\facet_c.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_2/facet_c.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = last_as, y = diff_abs_as, z = first_mty)) +
     theme_bw() +
@@ -162,13 +153,10 @@ figure_2_facet_d <- function(mat){
   
   big_rel_df <- merge(rel_df, time_df, by = c("id"))
   
-  jet.colors <- #based on http://senin-seblog.blogspot.com/2008/09/some-r-color-palettes.html
-    colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-                       "gray", "yellow", "#FF7F00", "red", "#7F0000"))
   
-  colord=jet.colors(100)
+  colord <- magma(100)
   
-  tiff(file=paste("results\\main\\figure_2\\facet_d.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/main/figure_2/facet_d.tiff", sep = ""), width=5000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = diff_abs_as, y = diff_rel_as, z = first_mty)) +
     theme_bw() +

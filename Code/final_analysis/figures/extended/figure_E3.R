@@ -4,8 +4,8 @@ library(dplyr)
 library(hash)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E3", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E3", showWarnings = F)
 
 figure_E3 <- function(){
   
@@ -34,9 +34,9 @@ figure_E3 <- function(){
           limited_file_name <- limiteds_file_name[[i_limited]]
           
           file_name <- character(0)
-          path <- paste("..\\..\\Data\\lizard_output_for_analysis\\results_for_locations\\", sep = "")
+          path <- paste("../../Data/lizard_output_for_analysis/results_for_locations/", sep = "")
           
-          path <- paste(path, location, "\\", time, "\\", climb, "\\", limited, "\\", sep="")
+          path <- paste(path, location, "/", time, "/", climb, "/", limited, "/", sep="")
           file_name <- paste(file_name, climb, "_", limited_file_name, location, "_MIC_CLIM_36_", time, "_", location_coo, "_statistics.csv", sep="")
           
           key <- paste(location, "_", time, "_", climb, "_", limited, sep="")
@@ -165,7 +165,7 @@ figure_E3 <- function(){
     
     facet <- facets[i]
     
-    plot_path <- paste("results\\extended\\figure_E3\\facet_",facet, ".tiff", sep = "")
+    plot_path <- paste("results/extended/figure_E3/facet_",facet, ".tiff", sep = "")
     ggsave(plot_path, plot = last_plot(), dpi = 1200, height = 17.66, width = 35, units = "cm")
     
   }

@@ -11,13 +11,13 @@ library(dplyr)
 library(data.table)
 
 dir.create("results", showWarnings = FALSE)
-dir.create(paste("results\\supplementary", sep = ""), showWarnings = FALSE)
-dir.create(paste("results\\supplementary\\figure_S1", sep = ""), showWarnings = FALSE)
+dir.create(paste("results/supplementary", sep = ""), showWarnings = FALSE)
+dir.create(paste("results/supplementary/figure_S1", sep = ""), showWarnings = FALSE)
 
 figure_S1 <- function(){
   
   file_name <- "climbing_limited_emergence_2013_MIC_CLIM_36_past_33.832_-111.502__heat_pars.csv"
-  path <- paste("..\\..\\Data\\lizard_output_for_analysis\\heat_pars\\", file_name, sep = "")
+  path <- paste("../../Data/lizard_output_for_analysis/heat_pars/", file_name, sep = "")
 
   df <- read.csv(path) %>%
     filter(shade_level == "open") %>%
@@ -47,7 +47,7 @@ figure_S1 <- function(){
           panel.spacing = unit(2, "lines"),
           panel.grid = element_blank())
   
-  plot_path <- "results\\supplementary\\figure_S1\\figure_S1.jpg"
+  plot_path <- "results/supplementary/figure_S1/figure_S1.jpg"
   ggsave(plot_path, plot = last_plot(), dpi = 1200, height = 17.66, width = 35, units = "cm")
   
   

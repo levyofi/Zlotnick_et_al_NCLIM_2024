@@ -9,8 +9,8 @@ library(RColorBrewer)
 library(ggplot2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//supplementary", showWarnings = F)
-dir.create("results//supplementary//figure_S10", showWarnings = F)
+dir.create("results/supplementary", showWarnings = F)
+dir.create("results/supplementary/figure_S10", showWarnings = F)
 
 clip<-function(raster,shape) {
   a1_crop<-crop(raster,shape)
@@ -27,13 +27,13 @@ set_coordinates<-function(rs){
 }
 
 figure_S10 <- function(){
-  nc = nc_open("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc")
+  nc = nc_open("../../Data/lizard_output_for_analysis/us_output.nc")
   lat_ncdf = ncvar_get(nc, varid="lat", start=c(1,1), count=c(1,-1))
   lon_ncdf = ncvar_get(nc, varid="lon", start=c(1,1), count=c(-1,1))
   
   #set the projection and extent of the maps
-  lat <- raster("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc", varname="lat")
-  lon <- raster("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc", varname="lon")
+  lat <- raster("../../Data/lizard_output_for_analysis/us_output.nc", varname="lat")
+  lon <- raster("../../Data/lizard_output_for_analysis/us_output.nc", varname="lon")
   plat <- rasterToPoints(lat)
   plon <- rasterToPoints(lon)
   lonlat <- cbind(plon[,3], plat[,3])
@@ -41,16 +41,16 @@ figure_S10 <- function(){
   
   # Need the rgdal package to project it to the original coordinate system
   p = CRS("+proj=lcc +lat_1=25.0 +lat_2=45.0 +lat_0=38.0 +lon_0=-100.0 +datum=WGS84 +R=6370000 +units=m +no_defs")
-  shp = readShapeSpatial("..\\..\\Data\\lizard_output_for_analysis\\scel_undu_pl.shp", proj4string =  CRS("+proj=longlat +datum=WGS84"))
+  shp = readShapeSpatial("../../Data/lizard_output_for_analysis/scel_undu_pl.shp", proj4string =  CRS("+proj=longlat +datum=WGS84"))
   shp<- spTransform(shp, p)
   
   mycrs <- p
   plonlat <- spTransform(lonlat, CRSobj = mycrs)
   
   
-  tiff(file=paste("results//supplementary//figure_S10//figure_S10.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/supplementary/figure_S10/figure_S10.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
-  rs_current_ta<-raster("..\\..\\Data\\lizard_output_for_analysis\\us_output.nc", varname = "mean_air50")
+  rs_current_ta<-raster("../../Data/lizard_output_for_analysis/us_output.nc", varname = "mean_air50")
   rs = rs_current_ta-273
   max_r= cellStats(rs , stat='max')
   min_r= cellStats(rs , stat='min')

@@ -11,8 +11,8 @@ library(dplyr)
 library(ggpmisc)
 
 dir.create("results", showWarnings = F)
-dir.create("results//extended", showWarnings = F)
-dir.create("results//extended//figure_E7", showWarnings = F)
+dir.create("results/extended", showWarnings = F)
+dir.create("results/extended/figure_E7", showWarnings = F)
 
 
 figure_E7_facet_a <- function(mat){
@@ -31,7 +31,7 @@ figure_E7_facet_a <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//extended//figure_E7//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E7/facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = diff_ah, y = diff_gr, z = first_mty)) +
     theme_bw() +
@@ -75,7 +75,7 @@ figure_E7_facet_b <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//extended//figure_E7//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/extended/figure_E7/facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = diff_ah, y = diff_gr, z = first_mty)) +
     theme_bw() +

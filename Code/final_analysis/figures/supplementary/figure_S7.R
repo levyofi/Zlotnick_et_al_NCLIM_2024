@@ -9,8 +9,8 @@ library(RColorBrewer)
 library(ggplot2)
 
 dir.create("results", showWarnings = F)
-dir.create("results//supplementary", showWarnings = F)
-dir.create("results//supplementary//figure_S7", showWarnings = F)
+dir.create("results/supplementary", showWarnings = F)
+dir.create("results/supplementary/figure_S7", showWarnings = F)
 
 
 figure_S7_facet_a <- function(){
@@ -18,13 +18,13 @@ figure_S7_facet_a <- function(){
   # load data from netcdf files
   
   case <- "past_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   past_climbing_mat <- ncvar_get(nfile, varid = "length_of_activity_season")
   status <- nc_close((nfile))
   
   case <- "future_climbing"
-  file_name <- paste("..//..//Data//lizard_output_for_analysis//netcdf_files//", case, ".nc", sep = "")
+  file_name <- paste("../../Data/lizard_output_for_analysis/netcdf_files/", case, ".nc", sep = "")
   nfile <- nc_open((file_name))
   future_climbing_mat <- ncvar_get(nfile, varid = "length_of_activity_season")
   status <- nc_close((nfile))
@@ -43,7 +43,7 @@ figure_S7_facet_a <- function(){
   color_palette <- colorRampPalette(c("#71ABD2","#ABCFE5","#FBF8F7","#FC9F81","#EF6653","#E32F27","#A4171A","#67000D"))
   colord <- color_palette(100)
   
-  tiff(file=paste("results//supplementary//figure_S7//facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/supplementary/figure_S7/facet_a.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   breaks <- seq(min,max,length.out = 100)
   plot(length_of_activity_season_l, pch = 18, col = colord, asp = 0.5, ylim=c(0,1), xlim=c(0,1), xlab="", ylab="", xaxt="n", yaxt="n", breaks = breaks, legend = FALSE)
@@ -68,7 +68,7 @@ figure_S7_facet_b <- function(mat){
   
   colord <- magma(100)
   
-  tiff(file=paste("results//supplementary//figure_S7//facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
+  tiff(file=paste("results/supplementary/figure_S7/facet_b.tiff", sep = ""), width=6000, height=2500, res=300, compression="lzw")
   
   p <- ggplot(big_rel_df, aes(x = diff_as, y = diff_gr, z = first_mty)) +
     theme_bw() +
